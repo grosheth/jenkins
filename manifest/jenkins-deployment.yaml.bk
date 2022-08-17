@@ -32,26 +32,10 @@ spec:
           resources: {}
           securityContext:
             privileged: true
-          volumeMounts:
-            - mountPath: /usr/bin/docker
-              name: /usr/bin/docker
-          volumeMounts:
-            - mountPath: /var/run/docker.sock
-              name: /var/run/docker.sock
       dnsPolicy: "None"
       dnsConfig:
         nameservers:
           - 1.1.1.1
-          - 8.8.8.8      
-      volumes:
-        - name: jenkins_home
-          persistentVolumeClaim:
-            claimName: jenkins_home
-        - name: docker
-          hostpath:
-            path: /usr/bin/docker
-        - name: docker.sock
-          hostpath:
-            path: /var/run/docker.sock      
+          - 8.8.8.8
       restartPolicy: Always
 status: {}
