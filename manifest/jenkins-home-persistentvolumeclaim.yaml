@@ -3,8 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: jenkins_home
-  name: jenkins_home
+    io.kompose.service: jenkins-home
+  name: jenkins-home
 spec:
   accessModes:
     - ReadWriteOnce

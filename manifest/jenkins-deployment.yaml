@@ -31,27 +31,27 @@ spec:
             - containerPort: 50000
           resources: {}
           securityContext:
+            runAsUser: 0
             privileged: true
           volumeMounts:
             - mountPath: /usr/bin/docker
-              name: /usr/bin/docker
-          volumeMounts:
+              name: docker-bin
             - mountPath: /var/run/docker.sock
-              name: /var/run/docker.sock
+              name: docker-sock
       dnsPolicy: "None"
       dnsConfig:
         nameservers:
           - 1.1.1.1
           - 8.8.8.8      
       volumes:
-        - name: jenkins_home
+        - name: jenkins-home
           persistentVolumeClaim:
-            claimName: jenkins_home
-        - name: docker
-          hostpath:
+            claimName: jenkins-home
+        - name: docker-bin
+          hostPath:
             path: /usr/bin/docker
-        - name: docker.sock
-          hostpath:
+        - name: docker-sock
+          hostPath:
             path: /var/run/docker.sock      
       restartPolicy: Always
 status: {}
